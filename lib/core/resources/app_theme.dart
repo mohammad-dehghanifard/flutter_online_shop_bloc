@@ -11,7 +11,8 @@ class AppTheme {
 
     ),
     textTheme: const TextTheme(
-      bodySmall: TextStyle(fontSize: 12,color: AppColors.greyColor)
+      bodySmall: TextStyle(fontSize: 12,color: AppColors.greyColor),
+      bodyMedium: TextStyle(fontSize: 14,color: AppColors.title)
     )
   );
 }
