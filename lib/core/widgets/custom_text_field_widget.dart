@@ -28,10 +28,13 @@ class CustomTextField extends StatelessWidget {
           width: width,
           height: height,
           child: TextField(
+            controller: controller,
+            textAlign: TextAlign.center,
             cursorColor: AppColors.primaryColor,
             decoration: InputDecoration(
               filled: true,
               hintText: hint,
+              hintStyle: Theme.of(context).textTheme.bodyMedium!.apply(color: AppColors.greyColor),
               fillColor: AppColors.mainBg,
               enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(AppDimens.medium),
