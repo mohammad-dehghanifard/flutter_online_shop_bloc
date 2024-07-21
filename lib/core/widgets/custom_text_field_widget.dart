@@ -10,8 +10,15 @@ class CustomTextField extends StatelessWidget {
     this.headerText,
     this.width = 250.0,
     this.height = 70.0,
+    this.onTap,
+    this.textAlign = TextAlign.center, this.suffixIcon,
+    this.redOnly = false,
   });
   final TextEditingController? controller;
+  final VoidCallback? onTap;
+  final TextAlign textAlign;
+  final bool redOnly;
+  final Widget? suffixIcon;
   final String? hint,headerText;
   final double width,height;
   @override
@@ -28,12 +35,14 @@ class CustomTextField extends StatelessWidget {
           width: width,
           height: height,
           child: TextField(
+            readOnly: redOnly,
             controller: controller,
             textAlign: TextAlign.center,
             cursorColor: AppColors.primaryColor,
             decoration: InputDecoration(
               filled: true,
               hintText: hint,
+              suffixIcon: suffixIcon,
               hintStyle: Theme.of(context).textTheme.bodyMedium!.apply(color: AppColors.greyColor),
               fillColor: AppColors.mainBg,
               enabledBorder: OutlineInputBorder(

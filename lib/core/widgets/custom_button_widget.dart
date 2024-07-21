@@ -22,6 +22,6 @@ class CustomButtonWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(AppDimens.medium))),
             minimumSize:  WidgetStatePropertyAll(Size(width,height))
         ),
-        child: Text(text,style: Theme.of(context).textTheme.bodyMedium!.apply(color: AppColors.mainBg),));
+        child: Text(text,style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppColors.mainBg,fontSize: 16,fontWeight: FontWeight.w500),));
   }
 }
