@@ -4,6 +4,7 @@ import 'package:flutter_online_shop_bloc/core/constants/app_dimens.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_strings.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/custom_button_widget.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/custom_text_field_widget.dart';
+import 'package:flutter_online_shop_bloc/features/auth/presentation/pages/register_page.dart';
 import 'package:flutter_online_shop_bloc/gen/assets.gen.dart';
 
 class CheckOtpPage extends StatelessWidget {
@@ -54,7 +55,7 @@ class CheckOtpPage extends StatelessWidget {
                 ),
                 // send otp button
                 CustomButtonWidget(
-                  onTap: () {},
+                  onTap: () => Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const RegisterPage())),
                   text: AppStrings.next,
                   width: MediaQuery.sizeOf(context).width * 0.70,
                 )
