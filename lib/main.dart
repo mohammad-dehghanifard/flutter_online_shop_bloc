@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_online_shop_bloc/core/resources/app_theme.dart';
 import 'package:flutter_online_shop_bloc/features/auth/presentation/pages/splash_page.dart';
 
@@ -13,6 +14,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [Locale('fa')],
+      locale: const Locale("fa"),
       title: 'Online Shop',
       theme: AppTheme.light,
       home: const SplashPage(),
