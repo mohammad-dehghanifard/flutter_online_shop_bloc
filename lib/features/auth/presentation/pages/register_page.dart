@@ -4,6 +4,7 @@ import 'package:flutter_online_shop_bloc/core/constants/app_strings.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/custom_button_widget.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/custom_text_field_widget.dart';
 import 'package:flutter_online_shop_bloc/features/auth/presentation/widgets/register_page_app_bar_widget.dart';
+import 'package:flutter_online_shop_bloc/features/home/presentation/pages/home_page.dart';
 import 'package:flutter_online_shop_bloc/gen/assets.gen.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -56,7 +57,9 @@ class RegisterPage extends StatelessWidget {
                 ),
                 const SizedBox(height: AppDimens.large * 2),
                 // Register button
-                CustomButtonWidget(onTap: () {}, text: AppStrings.register,width: double.infinity,)
+                CustomButtonWidget(
+                  onTap: () => Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const HomePage(),)),
+                  text: AppStrings.register,width: double.infinity,)
               ],
             ),
           ),

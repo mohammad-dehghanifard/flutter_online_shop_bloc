@@ -13,14 +13,17 @@ class CustomTextField extends StatelessWidget {
     this.onTap,
     this.textAlign = TextAlign.center, this.suffixIcon,
     this.redOnly = false,
+    this.hasBorder = true,
+    this.radius = AppDimens.medium,
+    this.prefixIcon,
   });
   final TextEditingController? controller;
   final VoidCallback? onTap;
   final TextAlign textAlign;
-  final bool redOnly;
-  final Widget? suffixIcon;
+  final bool redOnly,hasBorder;
+  final Widget? suffixIcon,prefixIcon;
   final String? hint,headerText;
-  final double width,height;
+  final double width,height,radius;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -43,15 +46,16 @@ class CustomTextField extends StatelessWidget {
               filled: true,
               hintText: hint,
               suffixIcon: suffixIcon,
+              prefixIcon: prefixIcon,
               hintStyle: Theme.of(context).textTheme.bodyMedium!.apply(color: AppColors.greyColor),
               fillColor: AppColors.mainBg,
               enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(AppDimens.medium),
-                  borderSide: const BorderSide(color: AppColors.greyBorderColor)
+                  borderRadius: BorderRadius.circular(radius),
+                  borderSide: hasBorder? const BorderSide(color: AppColors.primaryColor) : BorderSide.none
               ),
               focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(AppDimens.medium),
-                  borderSide: const BorderSide(color: AppColors.primaryColor)
+                  borderRadius: BorderRadius.circular(radius),
+                  borderSide: hasBorder? const BorderSide(color: AppColors.primaryColor) : BorderSide.none
               ),
             ),
           ),
