@@ -36,6 +36,7 @@ class AppColors {
   static const Color focusedBorderColor = Colors.blue;
   static const Color primaryColor = Colors.blue;
   static const Color surfaceColor = Color.fromARGB(255, 243, 243, 243);
+  static const Color greyBorderColor = Color.fromARGB(217, 220, 228, 243);
   static const Color focusedTextField = Colors.white;
   static const Color unFocusedTextField = Color.fromARGB(255, 251, 251, 251);
   static const Color mainButtonText = Color.fromARGB(255, 255, 255, 255);
