@@ -1,55 +1,48 @@
-abstract class AppStrings {
-  static const String replace = "replace";
-  static const String enterYourNumber = "شماره خود را وارد کنید";
-  static const String hintPhoneNumber = "مثل :  09121114466";
-  static const String sendOtpCode = "ارسال کد فعال سازی";
-  static const String wrongNumberEditNumber = "شماره اشتباه است/ ویرایش شماره";
-  static const String enterVerificationCode = "کد فعال سازی را وارد کنید";
-  static const String hintVerificationCode = "- - - - - -";
-  static const String next = "ادامه";
-  static const String version = "ورژن 1.0.0";
+import 'package:flutter/material.dart';
 
-  static const String otpCodeSendFor = "کد فعال سازی برای $replace ارسال شد";
-  static const String register = "ثبت نام ";
-  static const String chooseProfileImage = "انتخاب تصویر پروفایل";
-  static const String nameLastName = "نام و نام خانوادگی";
-  static const String homeNumber = "تلفن ثابت";
-  static const String sendToAddress = "ارسال به آدرس";
-  static const String address = "آدرس";
-  static const String postalCode = "کد پستی";
-  static const String location = "انتخاب موقعیت مکانی";
-  static const String hintNameLastName =
-      "نام و نام خانوادگی خود را با حروف فارسی وارد کنید";
-  static const String hintHomeNumber =
-      "شماره تلفن ثابت را با پیش شماره وارد بفرمایید";
-  static const String hintAddress = "آدرس پستی خود را وارد کنید";
-  static const String hintPostalCode = "کد پستی  10 رقمی خود را وارد کنید";
-  static const String hintLocation = "برای انتخاب موقعیت مکانی ضربه برنید";
-  static const String searchProduct = "جستجوی محصولات";
-  static const String classic = "کلاسیک";
-  static const String smart = "هوشمند";
-  static const String digital = "دیجیتال";
-  static const String desktop = "رو میزی";
-  static const String viewAll = "مشاهده همه";
-  static const String amazing = "شگفت انگیز";
-  static const String home = "خانه";
-  static const String basket = "سبد خرید";
-  static const String profile = "پروفایل";
-  static const String topSells = "پرفروش‌ها";
-  static const String newestProduct = "جدیدترین محصولات";
-  static const String features = "خصوصیات";
-  static const String review = "نقد و بررسی";
-  static const String comments = "نظرات";
-  static const String addToBasket = "افزودن به سبد خرید";
-  static const String count = "عدد";
-  static const String totalPrice = "مجموع  $replace تومان";
-  static const String continueToPurchase = "مجموع  $replace تومان";
-  static const String userProfile = "پروفایل کاربر";
-  static const String activeAddress = "آدرس فعال";
-  static const String termOfService = "قوانین و مقررات";
-  static const String inProcess = "درحال پردازش";
-  static const String cancelled = "لغو شده";
-  static const String delivered = "تحویل شده";
-  static const String lorem =
-      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ ";
+class AppColors {
+  AppColors._();
+  static const List<Color> productBgGradiant = [
+    Color.fromARGB(255, 238, 238, 238),
+    Color.fromARGB(255, 255, 255, 255)
+  ];
+  static const List<Color> catClassicColors = [
+    Color.fromARGB(255, 255, 166, 114),
+    Color.fromARGB(255, 255, 227, 200)
+  ];
+  static const List<Color> catSmartColors = [
+    Color.fromARGB(255, 139, 162, 168),
+    Color.fromARGB(255, 223, 238, 245)
+  ];
+  static const List<Color> catDigitalColors = [
+    Color(0xFFE183D4),
+    Color(0xFFFFE6F5),
+  ];
+  static const List<Color> catDesktopColors = [
+    Color(0xFF8396E1),
+    Color(0xFFE6FCFF),
+  ];
+
+  static const Color mainBg = Colors.white;
+  static const Color title = Colors.black;
+  static const Color oldPrice = Color.fromARGB(255, 191, 191, 191);
+  static const Color shadow = Color.fromARGB(90, 0, 0, 0);
+  static const Color hint = Colors.grey;
+  static const Color appbar = Colors.white;
+  static const Color searchBar = Colors.white;
+  static const Color scaffoldBackgroundColor = Color.fromARGB(255, 251, 251, 251);
+  static const Color borderColor = Colors.grey;
+  static const Color greyColor = Colors.grey;
+  static const Color focusedBorderColor = Colors.blue;
+  static const Color primaryColor = Colors.blue;
+  static const Color surfaceColor = Color.fromARGB(255, 243, 243, 243);
+  static const Color focusedTextField = Colors.white;
+  static const Color unFocusedTextField = Color.fromARGB(255, 251, 251, 251);
+  static const Color mainButtonText = Color.fromARGB(255, 255, 255, 255);
+  static const Color btmNavColor = Color.fromARGB(255, 255, 255, 255);
+  static const Color btmNavActiveItem = Color.fromARGB(255, 0, 0, 0);
+  static const Color btmNavInActiveItem = Color.fromARGB(255, 196, 196, 196);
+  static const Color amazingColor = Color.fromARGB(255, 57, 24, 80);
+  static const Color success = Colors.green;
+  static const Color onSuccess = Colors.white;
 }

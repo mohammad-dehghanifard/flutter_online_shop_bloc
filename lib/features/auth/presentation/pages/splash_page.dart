@@ -2,11 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_colors.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_dimens.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_strings.dart';
+import 'package:flutter_online_shop_bloc/features/auth/presentation/pages/send_otp_page.dart';
 import 'package:flutter_online_shop_bloc/gen/assets.gen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class SplashPage extends StatelessWidget {
+class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
+
+  @override
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+
+  @override
+  void initState() {
+    Future.delayed(const Duration(seconds: 3)).then(
+            (value) => Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const SendOtpPage()))
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +35,8 @@ class SplashPage extends StatelessWidget {
           const SizedBox(height: AppDimens.medium),
           const SpinKitThreeBounce(size: AppDimens.large,color: AppColors.amazingColor),
           const Spacer(),
-          const Text(AppStrings.version)
+          Text(AppStrings.version,style: Theme.of(context).textTheme.bodySmall),
+          const SizedBox(height: AppDimens.medium),
         ],
       ),
     );
