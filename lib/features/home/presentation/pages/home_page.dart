@@ -5,8 +5,9 @@ import 'package:flutter_online_shop_bloc/core/constants/app_dimens.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_strings.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/custom_text_field_widget.dart';
 import 'package:flutter_online_shop_bloc/features/home/presentation/widgets/home_category_widget.dart';
+import 'package:flutter_online_shop_bloc/features/home/presentation/widgets/home_product_widget.dart';
 import 'package:flutter_online_shop_bloc/features/home/presentation/widgets/home_slider_widget.dart';
-import 'package:flutter_online_shop_bloc/features/home/presentation/widgets/verticla_text_widget.dart';
+import 'package:flutter_online_shop_bloc/features/home/presentation/widgets/vertical_text_widget.dart';
 import 'package:flutter_online_shop_bloc/gen/assets.gen.dart';
 
 class HomePage extends StatelessWidget {
@@ -62,10 +63,26 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               // products list
-              const Padding(
-                padding: EdgeInsets.all(AppDimens.pageMargin),
-                child: VerticalTextWidget(),
-              )
+               SizedBox(
+                 height: 300,
+                 child: Row(
+                   children: [
+                     // title
+                     const VerticalTextWidget(),
+                     // amazing
+                     Expanded(
+                       child: ListView.builder(
+                          itemCount: 8,
+                           scrollDirection: Axis.horizontal,
+                           itemBuilder: (context, index) {
+                               return const HomeProductWidget();
+
+                           },
+                       ),
+                     ),
+                   ],
+                 ),
+               )
             ],
           ),
         ),
@@ -73,3 +90,5 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
+

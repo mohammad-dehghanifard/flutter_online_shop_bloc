@@ -10,6 +10,7 @@ class VerticalTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+
       children: [
          RotatedBox(
           quarterTurns: -1,
@@ -17,6 +18,7 @@ class VerticalTextWidget extends StatelessWidget {
         const SizedBox(width: AppDimens.medium),
         // view all
         Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
              RotatedBox(
               quarterTurns: -1,

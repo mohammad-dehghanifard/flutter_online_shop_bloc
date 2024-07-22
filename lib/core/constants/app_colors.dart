@@ -47,4 +47,5 @@ class AppColors {
   static const Color amazingColor = Color.fromARGB(255, 57, 24, 80);
   static const Color success = Colors.green;
   static const Color onSuccess = Colors.white;
+  static const Color redColor = Color(0xFFFF3A3A);
 }
