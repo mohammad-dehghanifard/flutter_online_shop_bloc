@@ -12,7 +12,9 @@ class AppTheme {
     ),
     textTheme: const TextTheme(
       bodySmall: TextStyle(fontSize: 12,color: AppColors.greyColor),
-      bodyMedium: TextStyle(fontSize: 14,color: AppColors.title)
+      bodyMedium: TextStyle(fontSize: 14,color: AppColors.title),
+      titleSmall: TextStyle(fontSize: 12,color: AppColors.title,fontWeight: FontWeight.w500),
+      titleLarge: TextStyle(fontSize: 26,color: AppColors.title,fontWeight: FontWeight.w500),
     )
   );
 }

@@ -32,7 +32,7 @@ abstract class AppStrings {
   static const String digital = "دیجیتال";
   static const String desktop = "رو میزی";
   static const String viewAll = "مشاهده همه";
-  static const String amazing = "شگفت انگیز";
+  static const String amazing = "شـگـفـت انـگـیـز";
   static const String home = "خانه";
   static const String basket = "سبد خرید";
   static const String profile = "پروفایل";

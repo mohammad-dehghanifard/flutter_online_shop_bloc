@@ -6,6 +6,7 @@ import 'package:flutter_online_shop_bloc/core/constants/app_strings.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/custom_text_field_widget.dart';
 import 'package:flutter_online_shop_bloc/features/home/presentation/widgets/home_category_widget.dart';
 import 'package:flutter_online_shop_bloc/features/home/presentation/widgets/home_slider_widget.dart';
+import 'package:flutter_online_shop_bloc/features/home/presentation/widgets/verticla_text_widget.dart';
 import 'package:flutter_online_shop_bloc/gen/assets.gen.dart';
 
 class HomePage extends StatelessWidget {
@@ -59,6 +60,11 @@ class HomePage extends StatelessWidget {
                     gradiant: catList[index].gradiant,
                   )),
                 ),
+              ),
+              // products list
+              const Padding(
+                padding: EdgeInsets.all(AppDimens.pageMargin),
+                child: VerticalTextWidget(),
               )
             ],
           ),
