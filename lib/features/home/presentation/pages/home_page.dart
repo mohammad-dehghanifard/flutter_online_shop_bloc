@@ -62,13 +62,13 @@ class HomePage extends StatelessWidget {
                   )),
                 ),
               ),
-              // products list
+              // amazing products list
                SizedBox(
                  height: 300,
                  child: Row(
                    children: [
                      // title
-                     const VerticalTextWidget(),
+                     const VerticalTextWidget(text: AppStrings.amazing,),
                      // amazing
                      Expanded(
                        child: ListView.builder(
@@ -82,7 +82,51 @@ class HomePage extends StatelessWidget {
                      ),
                    ],
                  ),
-               )
+               ),
+              // banner
+              Image.asset(Assets.png.watchbanner.path),
+              // topSells products list
+              SizedBox(
+                height: 300,
+                child: Row(
+                  children: [
+                    // title
+                    const VerticalTextWidget(text: AppStrings.topSells,textColor: AppColors.redColor,),
+                    // amazing
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: 8,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return const HomeProductWidget();
+
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // new products list
+              SizedBox(
+                height: 300,
+                child: Row(
+                  children: [
+                    // title
+                    const VerticalTextWidget(text: AppStrings.newProduct,textColor: AppColors.greyColor,),
+                    // amazing
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: 8,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return const HomeProductWidget();
+
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
