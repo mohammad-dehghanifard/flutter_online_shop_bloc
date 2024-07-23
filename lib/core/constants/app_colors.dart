@@ -24,6 +24,7 @@ class AppColors {
   ];
 
   static const Color mainBg = Colors.white;
+  static const Color white = Colors.white;
   static const Color title = Colors.black;
   static const Color black = Colors.black;
   static const Color oldPrice = Color.fromARGB(255, 191, 191, 191);
@@ -48,4 +49,6 @@ class AppColors {
   static const Color success = Colors.green;
   static const Color onSuccess = Colors.white;
   static const Color redColor = Color(0xFFFF3A3A);
+  static const Color navigationUnSelected = Color(0xFFCECECE);
+  static const Color navigationSelected = Color(0xFF000000);
 }
