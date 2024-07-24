@@ -3,6 +3,7 @@ import 'package:flutter_online_shop_bloc/core/constants/app_colors.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_dimens.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_strings.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/page_app_bar_widget.dart';
+import 'package:flutter_online_shop_bloc/features/home/presentation/widgets/home_product_widget.dart';
 import 'package:flutter_online_shop_bloc/features/product/presentation/widgets/product_tag_widget.dart';
 import 'package:flutter_online_shop_bloc/gen/assets.gen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -38,7 +39,16 @@ class ProductListPage extends StatelessWidget {
                   );
                 },
             ),
-          )
+          ),
+          Expanded(
+              child: GridView.builder(
+                itemCount: 20,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisExtent: 280
+                  ),
+                  itemBuilder: (context, index) => const HomeProductWidget(),
+              ))
         ],
       ),
     );
