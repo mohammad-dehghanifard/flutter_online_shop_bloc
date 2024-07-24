@@ -8,6 +8,7 @@ abstract class AppStrings {
   static const String enterVerificationCode = "کد فعال سازی را وارد کنید";
   static const String hintVerificationCode = "- - - - - -";
   static const String next = "ادامه";
+  static const String nextBuyProduct = "ادامه فرآیند خرید";
   static const String version = "ورژن 1.0.0";
   static const String productsList = "لیست محصولات";
 
