@@ -3,6 +3,7 @@ import 'package:flutter_online_shop_bloc/core/constants/app_colors.dart';
 import 'package:flutter_online_shop_bloc/features/cart/presentation/pages/cart_page.dart';
 import 'package:flutter_online_shop_bloc/features/home/presentation/pages/home_page.dart';
 import 'package:flutter_online_shop_bloc/features/main/widgets/custom_navigation_widget.dart';
+import 'package:flutter_online_shop_bloc/features/profile/peresentation/pages/profile_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -36,7 +37,7 @@ class _MainPageState extends State<MainPage> {
         children: const [
           HomePage(),
           CartPage(),
-          ScreenTest(),
+          ProfilePage(),
         ],
       )
     );
@@ -44,17 +45,3 @@ class _MainPageState extends State<MainPage> {
 }
 
 
-
-
-class ScreenTest extends StatelessWidget {
-  const ScreenTest({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      color: AppColors.primaryColor,
-    );
-  }
-}

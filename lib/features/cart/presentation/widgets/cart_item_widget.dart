@@ -16,7 +16,7 @@ class CartItemWidget extends StatelessWidget {
       width: double.infinity,
       height: 150,
       decoration:  BoxDecoration(
-          color: AppColors.cartBgColor,
+          color: AppColors.mainContainerBgColor,
           borderRadius: BorderRadius.circular(AppDimens.medium + 4)
       ),
       child: Row(
