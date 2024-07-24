@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_colors.dart';
+import 'package:flutter_online_shop_bloc/features/cart/presentation/pages/cart_page.dart';
 import 'package:flutter_online_shop_bloc/features/home/presentation/pages/home_page.dart';
 import 'package:flutter_online_shop_bloc/features/main/widgets/custom_navigation_widget.dart';
 
@@ -34,8 +35,7 @@ class _MainPageState extends State<MainPage> {
         controller: pageController,
         children: const [
           HomePage(),
-          ScreenTest(),
-          ScreenTest(),
+          CartPage(),
           ScreenTest(),
         ],
       )

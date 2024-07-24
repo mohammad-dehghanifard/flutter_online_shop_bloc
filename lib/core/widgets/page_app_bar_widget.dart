@@ -3,9 +3,11 @@ import 'package:flutter_online_shop_bloc/core/constants/app_colors.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_dimens.dart';
 
 class PageAppBarWidget extends StatelessWidget implements PreferredSize{
-  const PageAppBarWidget({super.key, this.leading, this.title, this.action,this.centerTitle = false});
+  const PageAppBarWidget({super.key, this.leading, this.title, this.action,this.centerTitle = false,
+     this.alignment = MainAxisAlignment.spaceAround});
   final Widget? leading,title,action;
   final bool centerTitle;
+  final MainAxisAlignment alignment;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,17 +29,21 @@ class PageAppBarWidget extends StatelessWidget implements PreferredSize{
           children: [
             SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: alignment,
               children: [
 
-                if(leading != null)
-                leading!,
+                if(leading != null)...[
+                  leading!,
+                ],
 
-                if(title != null)
-                 centerTitle? Center(child: title!) : title!,
 
-                if(action != null)
+                if(title != null)...[
+                  title!,
+                ],
+
+                if(action != null)...[
                   action!,
+                ]
               ],
             ),
           ],
