@@ -3,6 +3,7 @@ import 'package:flutter_online_shop_bloc/core/constants/app_dimens.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_strings.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/page_app_bar_widget.dart';
 import 'package:flutter_online_shop_bloc/features/cart/presentation/widgets/cart_address_box.dart';
+import 'package:flutter_online_shop_bloc/features/cart/presentation/widgets/cart_item_widget.dart';
 
 
 class CartPage extends StatelessWidget {
@@ -17,15 +18,27 @@ class CartPage extends StatelessWidget {
           child: Text(AppStrings.basket,style: Theme.of(context).textTheme.titleMedium),
         )
         ,alignment: MainAxisAlignment.start,),
-      body: const Column(
+      body:  Column(
         children: [
-          SizedBox(height: AppDimens.large),
+          const SizedBox(height: AppDimens.large),
           // address card
-          CartAddressBox()
+          const CartAddressBox(),
+          const SizedBox(height: AppDimens.large),
+          // card list
+          Expanded(
+              child: ListView.builder(
+                itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return const CartItemWidget();
+                  },
+              )
+          ),
         ],
       ),
     );
   }
 }
+
+
 
 

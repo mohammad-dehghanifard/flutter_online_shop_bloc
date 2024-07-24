@@ -49,6 +49,8 @@ class AppColors {
   static const Color success = Colors.green;
   static const Color onSuccess = Colors.white;
   static const Color redColor = Color(0xFFFF3A3A);
+  static const Color dividerColor = Color(0xFFD9DCE4);
   static const Color navigationUnSelected = Color(0xFFCECECE);
   static const Color navigationSelected = Color(0xFF000000);
+  static const Color cartBgColor = Color(0xFFF3F3F3);
 }
