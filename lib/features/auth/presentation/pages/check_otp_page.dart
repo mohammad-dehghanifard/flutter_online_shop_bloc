@@ -8,8 +8,8 @@ import 'package:flutter_online_shop_bloc/features/auth/presentation/pages/regist
 import 'package:flutter_online_shop_bloc/gen/assets.gen.dart';
 
 class CheckOtpPage extends StatelessWidget {
-  const CheckOtpPage({super.key});
-
+  const CheckOtpPage({super.key, required this.mobileNumber});
+  final String mobileNumber;
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -28,7 +28,7 @@ class CheckOtpPage extends StatelessWidget {
                 SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
                 const SizedBox(height: AppDimens.medium),
                 // info
-                Text(AppStrings.otpCodeSendFor.replaceAll("replace", "09351592323")),
+                Text(AppStrings.otpCodeSendFor.replaceAll("replace", mobileNumber.toString())),
                 // edit phone
                 TextButton(
                     onPressed: () {},

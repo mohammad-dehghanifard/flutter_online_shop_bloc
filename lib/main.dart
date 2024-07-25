@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       title: 'Online Shop',
       theme: AppTheme.light,
       home: BlocProvider<AuthCubit>(
-        create: (context) => AuthCubit(),
+          create: (context) => AuthCubit(),
           child: const SplashPage()),
     );
   }

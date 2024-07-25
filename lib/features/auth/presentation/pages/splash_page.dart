@@ -4,8 +4,6 @@ import 'package:flutter_online_shop_bloc/core/constants/app_colors.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_dimens.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_strings.dart';
 import 'package:flutter_online_shop_bloc/features/auth/bloc/auth_cubit.dart';
-import 'package:flutter_online_shop_bloc/features/auth/presentation/pages/send_otp_page.dart';
-import 'package:flutter_online_shop_bloc/features/home/presentation/pages/home_page.dart';
 import 'package:flutter_online_shop_bloc/gen/assets.gen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
