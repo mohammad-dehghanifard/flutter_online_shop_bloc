@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_colors.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_dimens.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_strings.dart';
+import 'package:flutter_online_shop_bloc/features/auth/bloc/auth_cubit.dart';
 import 'package:flutter_online_shop_bloc/features/auth/presentation/pages/send_otp_page.dart';
+import 'package:flutter_online_shop_bloc/features/home/presentation/pages/home_page.dart';
 import 'package:flutter_online_shop_bloc/gen/assets.gen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -17,9 +20,7 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 3)).then(
-            (value) => Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const SendOtpPage()))
-    );
+    Future.delayed(const Duration(seconds: 3)).then((value) => BlocProvider.of<AuthCubit>(context).checkLoggedIn(context));
     super.initState();
   }
 

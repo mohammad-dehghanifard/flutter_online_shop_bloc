@@ -13,6 +13,6 @@ final class AuthSendSmsState extends AuthState {}
 
 final class AuthUserLoggedInState extends AuthState {}
 
-final class AuthUserLoggedOutState extends AuthState {}
+final class AuthUserNotLoggedInState extends AuthState {}
 
 final class AuthVerifiedState extends AuthState {}
