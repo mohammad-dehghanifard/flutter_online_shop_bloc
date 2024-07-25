@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_colors.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_dimens.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_strings.dart';
+import 'package:flutter_online_shop_bloc/core/widgets/app_loading_widget.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/custom_button_widget.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/custom_text_field_widget.dart';
 import 'package:flutter_online_shop_bloc/features/auth/bloc/auth_cubit.dart';
@@ -43,10 +44,7 @@ class SendOtpPage extends StatelessWidget {
                   child: BlocConsumer<AuthCubit, AuthState>(
                     builder: (context, state) {
                       if (state is AuthLoadingState) {
-                        return const SpinKitThreeBounce(
-                          size: 32,
-                          color: AppColors.primaryColor,
-                        );
+                        return const AppLoadingWidget();
                       } else {
                         return CustomButtonWidget(
                           onTap: () => BlocProvider.of<AuthCubit>(context)
@@ -79,3 +77,5 @@ class SendOtpPage extends StatelessWidget {
     );
   }
 }
+
+

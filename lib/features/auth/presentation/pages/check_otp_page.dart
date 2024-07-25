@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_colors.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_dimens.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_strings.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/custom_button_widget.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/custom_text_field_widget.dart';
+import 'package:flutter_online_shop_bloc/features/auth/bloc/auth_cubit.dart';
 import 'package:flutter_online_shop_bloc/features/auth/presentation/pages/register_page.dart';
 import 'package:flutter_online_shop_bloc/features/auth/presentation/widgets/text_timer_widget.dart';
 import 'package:flutter_online_shop_bloc/gen/assets.gen.dart';
@@ -33,7 +35,7 @@ class CheckOtpPage extends StatelessWidget {
                 Text(AppStrings.otpCodeSendFor.replaceAll("replace", mobileNumber.toString())),
                 // edit phone
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.of(context).pop(),
                     style: ButtonStyle(
                       overlayColor: WidgetStatePropertyAll(AppColors.primaryColor.withOpacity(0.10)),
                     ),
@@ -57,10 +59,20 @@ class CheckOtpPage extends StatelessWidget {
                   width: MediaQuery.sizeOf(context).width * 0.80,
                 ),
                 // send otp button
-                CustomButtonWidget(
-                  onTap: () => Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const RegisterPage())),
-                  text: AppStrings.next,
-                  width: MediaQuery.sizeOf(context).width * 0.70,
+                BlocConsumer<AuthCubit, AuthState>(
+                  listener: (context, state) {
+                    // TODO: implement listener
+                  },
+                  builder: (context, state) {
+                    return CustomButtonWidget(
+                      onTap: () => Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const RegisterPage())),
+                      text: AppStrings.next,
+                      width: MediaQuery.sizeOf(context).width * 0.70,
+                    );
+                  },
                 )
               ],
             ),
