@@ -42,6 +42,8 @@ class _TextTimerWidgetState extends State<TextTimerWidget> {
     super.initState();
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return Text(formatTime(widget.time));
