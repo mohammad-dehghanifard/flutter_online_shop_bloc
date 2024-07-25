@@ -5,6 +5,7 @@ import 'package:flutter_online_shop_bloc/core/constants/app_strings.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/custom_button_widget.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/custom_text_field_widget.dart';
 import 'package:flutter_online_shop_bloc/features/auth/presentation/pages/register_page.dart';
+import 'package:flutter_online_shop_bloc/features/auth/presentation/widgets/text_timer_widget.dart';
 import 'package:flutter_online_shop_bloc/gen/assets.gen.dart';
 
 class CheckOtpPage extends StatelessWidget {
@@ -12,6 +13,7 @@ class CheckOtpPage extends StatelessWidget {
   final String mobileNumber;
   @override
   Widget build(BuildContext context) {
+    final TextEditingController otpCodeText = TextEditingController();
     return  Scaffold(
       body: SafeArea(
         child: Padding(
@@ -39,17 +41,18 @@ class CheckOtpPage extends StatelessWidget {
                 ),
                 SizedBox(height: MediaQuery.sizeOf(context).height * 0.05),
                 // resend code
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: AppDimens.large,vertical: AppDimens.small),
+                 Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: AppDimens.large,vertical: AppDimens.small),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(AppStrings.enterVerificationCode),
-                      Text("02:45")
+                      const Text(AppStrings.enterVerificationCode),
+                      TextTimerWidget(time: 120),
                     ],
                   ),
                 ),
                 CustomTextField(
+                  controller: otpCodeText,
                   hint: AppStrings.hintVerificationCode,
                   width: MediaQuery.sizeOf(context).width * 0.80,
                 ),
@@ -67,3 +70,7 @@ class CheckOtpPage extends StatelessWidget {
     );
   }
 }
+
+
+
+
