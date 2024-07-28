@@ -42,7 +42,11 @@ class _TextTimerWidgetState extends State<TextTimerWidget> {
     super.initState();
   }
 
-
+@override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

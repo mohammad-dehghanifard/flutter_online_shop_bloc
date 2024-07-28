@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_online_shop_bloc/core/constants/api_end_points.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_keys.dart';
-import 'package:flutter_online_shop_bloc/core/resources/preferences_manager.dart';
+import 'package:flutter_online_shop_bloc/core/helpers/preferences_manager.dart';
 import 'package:flutter_online_shop_bloc/features/auth/presentation/pages/send_otp_page.dart';
 import '../../home/presentation/pages/home_page.dart';
 
