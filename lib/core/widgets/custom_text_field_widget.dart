@@ -42,6 +42,7 @@ class CustomTextField extends StatelessWidget {
             controller: controller,
             textAlign: TextAlign.center,
             cursorColor: AppColors.primaryColor,
+            onTap: onTap,
             decoration: InputDecoration(
               filled: true,
               hintText: hint,
