@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_online_shop_bloc/core/resources/app_theme.dart';
+import 'package:flutter_online_shop_bloc/core/resources/preferences_manager.dart';
 import 'package:flutter_online_shop_bloc/features/auth/bloc/auth_cubit.dart';
 import 'package:flutter_online_shop_bloc/features/auth/presentation/pages/splash_page.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPreferencesManager().init();
   runApp(const MyApp());
 }
 

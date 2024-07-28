@@ -9,6 +9,7 @@ import 'package:flutter_online_shop_bloc/core/widgets/custom_text_field_widget.d
 import 'package:flutter_online_shop_bloc/features/auth/bloc/auth_cubit.dart';
 import 'package:flutter_online_shop_bloc/features/auth/presentation/pages/register_page.dart';
 import 'package:flutter_online_shop_bloc/features/auth/presentation/widgets/text_timer_widget.dart';
+import 'package:flutter_online_shop_bloc/features/main/pages/main_page.dart';
 import 'package:flutter_online_shop_bloc/gen/assets.gen.dart';
 
 class CheckOtpPage extends StatelessWidget {
@@ -75,7 +76,12 @@ class CheckOtpPage extends StatelessWidget {
                   create: (context) => AuthCubit(),
                   child: BlocConsumer<AuthCubit, AuthState>(
                     listener: (context, state) {
-                      if (state is AuthVerifiedState) {
+                      if (state is AuthUserRegisteredState) {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MainPage()));
+                      } else if(state is AuthUserNotRegisteredState){
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(

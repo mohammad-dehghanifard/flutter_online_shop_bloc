@@ -1,17 +1,17 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_online_shop_bloc/core/constants/api_end_points.dart';
+import 'package:flutter_online_shop_bloc/core/constants/app_keys.dart';
+import 'package:flutter_online_shop_bloc/core/resources/preferences_manager.dart';
 import 'package:flutter_online_shop_bloc/features/auth/presentation/pages/send_otp_page.dart';
-
 import '../../home/presentation/pages/home_page.dart';
 
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial()){
-    emit(AuthUserNotLoggedInState());
+    emit(AuthUserNotRegisteredState());
   }
   final Dio _dio = Dio();
 
@@ -38,10 +38,15 @@ class AuthCubit extends Cubit<AuthState> {
       final Response response = await _dio.post(ApiEndPoints.checkSmsCode,data: {"mobile" : mobile,"code" : code});
       debugPrint(response.toString());
 
-      if(response.statusCode == 201) {
-        emit(AuthVerifiedState());
-      } else {
-        emit(AuthErrorSendSmsState());
+      if(response.data['data']['token'] != null){
+        SharedPreferencesManager().saveString(key: AppKeys.token,value: response.data['data']['token']);
+        if(response.statusCode == 201) {
+          if(response.data['data']['is_registered']){
+            emit(AuthUserRegisteredState());
+          } else {
+            emit(AuthUserNotRegisteredState());
+          }
+        }
       }
 
     } catch(e) {
@@ -50,9 +55,9 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   checkLoggedIn(BuildContext context){
-    if(state is AuthUserLoggedInState) {
+    if(state is AuthUserRegisteredState) {
       Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const HomePage()));
-    } else if(state is AuthUserNotLoggedInState) {
+    } else if(state is AuthUserNotRegisteredState) {
       Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const SendOtpPage()));
     }
   }

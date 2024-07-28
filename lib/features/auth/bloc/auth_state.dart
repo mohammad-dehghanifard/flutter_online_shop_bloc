@@ -11,8 +11,8 @@ final class AuthErrorSendSmsState extends AuthState {}
 
 final class AuthSendSmsState extends AuthState {}
 
-final class AuthUserLoggedInState extends AuthState {}
+final class AuthUserRegisteredState extends AuthState {}
 
-final class AuthUserNotLoggedInState extends AuthState {}
+final class AuthUserNotRegisteredState extends AuthState {}
 
 final class AuthVerifiedState extends AuthState {}
