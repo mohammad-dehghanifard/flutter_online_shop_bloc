@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_dimens.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_strings.dart';
+import 'package:flutter_online_shop_bloc/core/helpers/select_and_crop_image_handler.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/custom_button_widget.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/custom_text_field_widget.dart';
+import 'package:flutter_online_shop_bloc/core/widgets/user_avatar_widget.dart';
 import 'package:flutter_online_shop_bloc/features/auth/presentation/widgets/register_page_app_bar_widget.dart';
-import 'package:flutter_online_shop_bloc/features/home/presentation/pages/home_page.dart';
 import 'package:flutter_online_shop_bloc/features/main/pages/main_page.dart';
-import 'package:flutter_online_shop_bloc/gen/assets.gen.dart';
+import 'package:image_picker/image_picker.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
 
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  final SelectAndCropImageHandler imageHandler = SelectAndCropImageHandler();
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -24,9 +31,13 @@ class RegisterPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // avatar
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(AppDimens.large * 5),
-                    child: Image.asset(Assets.png.avatar.path)),
+                UserAvatarWidget(
+                  onTap: () async {
+                    await imageHandler.selectAndCropImage(source: ImageSource.gallery);
+                    setState(() {});
+                  },
+                  imageFile: imageHandler.getImage,
+                ),
                 // forms
                 const CustomTextField(
                   width: double.infinity,
@@ -69,6 +80,4 @@ class RegisterPage extends StatelessWidget {
     );
   }
 }
-
-
 

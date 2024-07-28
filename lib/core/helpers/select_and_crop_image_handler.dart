@@ -9,10 +9,11 @@ class SelectAndCropImageHandler {
 
   Future<void> selectAndCropImage({required ImageSource source}) async {
     try {
-      File? selectImage = await ImagePicker().pickImage(source: source) as File?;
+      final selectImage = await ImagePicker().pickImage(source: source);
       if(selectImage == null) return ;
-      selectImage = await _cropImage(image: selectImage);
-      _image = selectImage;
+      File? imageFile = File(selectImage.path);
+      imageFile = await _cropImage(image: imageFile);
+      _image = imageFile;
     } catch(e){
       debugPrint(e.toString());
     }
