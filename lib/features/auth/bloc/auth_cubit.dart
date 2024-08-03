@@ -5,13 +5,14 @@ import 'package:flutter_online_shop_bloc/core/constants/api_end_points.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_keys.dart';
 import 'package:flutter_online_shop_bloc/core/helpers/preferences_manager.dart';
 import 'package:flutter_online_shop_bloc/features/auth/presentation/pages/send_otp_page.dart';
-import '../../home/presentation/pages/home_page.dart';
+import 'package:flutter_online_shop_bloc/features/main/pages/main_page.dart';
 
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial()){
-    emit(AuthUserNotRegisteredState());
+    final String? token = SharedPreferencesManager().getString(key: AppKeys.token);
+    token != null ? emit(AuthUserRegisteredState()) : emit(AuthUserNotRegisteredState());
   }
   final Dio _dio = Dio();
 
@@ -56,7 +57,7 @@ class AuthCubit extends Cubit<AuthState> {
 
   checkLoggedIn(BuildContext context){
     if(state is AuthUserRegisteredState) {
-      Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const HomePage()));
+      Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const MainPage()));
     } else if(state is AuthUserNotRegisteredState) {
       Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const SendOtpPage()));
     }

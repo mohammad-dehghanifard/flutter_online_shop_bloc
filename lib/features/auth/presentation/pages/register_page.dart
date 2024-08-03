@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_dimens.dart';
 import 'package:flutter_online_shop_bloc/core/constants/app_strings.dart';
 import 'package:flutter_online_shop_bloc/core/helpers/select_and_crop_image_handler.dart';
+import 'package:flutter_online_shop_bloc/core/widgets/app_loading_widget.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/custom_button_widget.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/custom_text_field_widget.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/user_avatar_widget.dart';
@@ -38,6 +39,11 @@ class _RegisterPageState extends State<RegisterPage> {
                     registerRequest.lat = state.location.latitude;
                     registerRequest.lng = state.location.longitude;
                   }
+                  if(state is RegisterVerifiedState) {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MainPage()));
+                  } else if(state is RegisterErrorState) {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("error...")));
+                  }
                 },
                 builder: (context, state) {
                   return Column(
@@ -50,6 +56,9 @@ class _RegisterPageState extends State<RegisterPage> {
                           await imageHandler.selectAndCropImage(
                               source: ImageSource.gallery);
                           setState(() {});
+                          if(imageHandler.getImage != null) {
+                            registerRequest.image = imageHandler.getImage;
+                          }
                         },
                         imageFile: imageHandler.getImage,
                       ),
@@ -93,15 +102,16 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       const SizedBox(height: AppDimens.large * 2),
                       // Register button
-                      CustomButtonWidget(
-                        onTap: () => Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const MainPage(),
-                            )),
-                        text: AppStrings.register,
-                        width: double.infinity,
-                      )
+                      if(state is RegisterLoadingState)...[
+                        const AppLoadingWidget()
+                      ]else...[
+                        CustomButtonWidget(
+                          onTap: () => BlocProvider.of<RegisterCubit>(context).register(registerRequest),
+                          text: AppStrings.register,
+                          width: double.infinity,
+                        )
+                      ]
+
                     ],
                   );
                 },
