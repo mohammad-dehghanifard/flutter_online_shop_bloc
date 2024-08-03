@@ -7,6 +7,7 @@ import 'package:flutter_online_shop_bloc/core/widgets/custom_button_widget.dart'
 import 'package:flutter_online_shop_bloc/core/widgets/custom_text_field_widget.dart';
 import 'package:flutter_online_shop_bloc/core/widgets/user_avatar_widget.dart';
 import 'package:flutter_online_shop_bloc/features/auth/bloc/register_cubit.dart';
+import 'package:flutter_online_shop_bloc/features/auth/data/request/register_request.dart';
 import 'package:flutter_online_shop_bloc/features/auth/presentation/widgets/register_page_app_bar_widget.dart';
 import 'package:flutter_online_shop_bloc/features/main/pages/main_page.dart';
 import 'package:image_picker/image_picker.dart';
@@ -20,7 +21,7 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   final SelectAndCropImageHandler imageHandler = SelectAndCropImageHandler();
-
+  final RegisterRequest registerRequest = RegisterRequest();
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -33,7 +34,10 @@ class _RegisterPageState extends State<RegisterPage> {
               padding: const EdgeInsets.all(AppDimens.pageMargin),
               child: BlocConsumer<RegisterCubit, RegisterState>(
                 listener: (context, state) {
-                  // TODO: implement listener
+                  if(state is RegisterPickLocationState) {
+                    registerRequest.lat = state.location.latitude;
+                    registerRequest.lng = state.location.longitude;
+                  }
                 },
                 builder: (context, state) {
                   return Column(
@@ -50,22 +54,30 @@ class _RegisterPageState extends State<RegisterPage> {
                         imageFile: imageHandler.getImage,
                       ),
                       // forms
-                      const CustomTextField(
+                      // full name
+                       CustomTextField(
+                         controller: registerRequest.fullNameTxt,
                         width: double.infinity,
                         headerText: AppStrings.nameLastName,
                         hint: AppStrings.hintNameLastName,
                       ),
-                      const CustomTextField(
+                       // home number
+                       CustomTextField(
+                         controller:  registerRequest.phoneTxt,
                         width: double.infinity,
                         headerText: AppStrings.homeNumber,
                         hint: AppStrings.hintHomeNumber,
                       ),
-                      const CustomTextField(
+                      // address
+                       CustomTextField(
+                        controller: registerRequest.addressTxt,
                         width: double.infinity,
                         headerText: AppStrings.address,
                         hint: AppStrings.hintAddress,
                       ),
-                      const CustomTextField(
+                      // postal code
+                      CustomTextField(
+                        controller: registerRequest.postalCodeTxt,
                         width: double.infinity,
                         headerText: AppStrings.postalCode,
                         hint: AppStrings.hintPostalCode,
